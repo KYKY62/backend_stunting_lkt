@@ -24,18 +24,4 @@ jobs:
           port: 2222
           script: |
             cd "${{ secrets.APP_PATH }}"
-
-            APP_PATH="${{ secrets.APP_PATH }}"
-            REPO_URL="https://${{ secrets.GIT_TOKEN }}@github.com/KYKY62/backend_stunting_lkt.git"
-            echo "Running build script..."
-
-            if [ ! -d "$APP_PATH/.git" ]; then
-              echo "[1] Project not found. Cloning fresh repo..."
-              rm -rf "$APP_PATH"
-              git clone "$REPO_URL" "$APP_PATH"
-            else
-              echo "[1] Project exists. Updating repo..."
-              cd "$APP_PATH"
-              git config --global --add safe.directory "$APP_PATH"
-            fi
             ./build.sh
