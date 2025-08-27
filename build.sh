@@ -4,7 +4,7 @@ echo "Running build script..."
 
 echo "[1/5] Pulling from github"
 git config --global --add safe.directory "${pwd}"
-git pull origin 
+git pull origin main
 
 echo "[2/5] ubah ke devtest"
 sudo -u devtest -H bash -lc "cd /home/devtest/public_html && composer install"
