@@ -23,6 +23,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            REPO="https://${{ secrets.GIT_TOKEN }}@github.com/KYKY62/backend_stunting_lkt.git"
-            DIR="${{ secrets.APP_PATH }}"
+            cd "${{ secrets.APP_PATH }}"
             ./build.sh
