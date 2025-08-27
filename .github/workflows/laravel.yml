@@ -24,4 +24,15 @@ jobs:
           port: 2222
           script: |
             cd "${{ secrets.APP_PATH }}"
+            echo "Running build script..."
+
+            if [ ! -d "$APP_PATH/.git" ]; then
+              echo "[1] Project not found. Cloning fresh repo..."
+              rm -rf "$APP_PATH"
+              git clone "$REPO_URL" "$APP_PATH"
+            else
+              echo "[1] Project exists. Updating repo..."
+              cd "$APP_PATH"
+              git config --global --add safe.directory "$APP_PATH"
+            fi
             ./build.sh

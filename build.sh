@@ -3,7 +3,7 @@
 echo "Running build script..."
 
 echo "[1/5] Pulling from github"
-git config --global --add safe.directory "${pwd}"
+# git config --global --add safe.directory "${pwd}"
 git pull origin main
 
 echo "[2/5] ubah ke devtest"
