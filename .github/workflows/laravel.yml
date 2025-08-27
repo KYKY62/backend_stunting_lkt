@@ -38,5 +38,5 @@ jobs:
           # key: ${{ secrets.SSH_PRIVATE_KEY }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd ${{ secrets.APP_PATH }}
+            cd /home/devtest/public_html/
             ./build.sh

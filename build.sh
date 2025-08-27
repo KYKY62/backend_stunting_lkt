@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Running build script..."
 
 echo "[1/4] Pulling from github"
