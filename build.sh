@@ -7,7 +7,7 @@ git config --global --add safe.directory "${pwd}"
 git pull origin 
 
 echo "[3/6] ubah ke devtest"
-exit
+su devtest
 
 echo "[3/6] installing packages use composer"
 composer install
