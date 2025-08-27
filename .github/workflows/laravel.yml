@@ -36,6 +36,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd ${{ secrets.APP_PATH }}
-            ./build.sh
+          script: cd "${{ secrets.APP_PATH }}" && ./build.sh
