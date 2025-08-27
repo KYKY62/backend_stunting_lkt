@@ -19,4 +19,4 @@ echo "[5/5] setting up npm"
 npm run install
 npm run build
 
-echo "Build script complete."
+echo "Build script complete. (update v1)"
