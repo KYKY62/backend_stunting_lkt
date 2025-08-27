@@ -30,13 +30,3 @@ jobs:
           DB_CONNECTION: mysql
           DB_DATABASE: database/stunting_lkt
         run: php artisan test
-      - name: Deploy using ssh
-        uses: appleboy/ssh-action@v1.1.0
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
-          script_stop: true
-          script: cd "${{ secrets.APP_PATH }}" && ./build.sh
