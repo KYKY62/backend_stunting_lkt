@@ -24,6 +24,9 @@ jobs:
           port: 2222
           script: |
             cd "${{ secrets.APP_PATH }}"
+
+             APP_PATH="${{ secrets.APP_PATH }}"
+            REPO_URL="https://${{ secrets.GIT_TOKEN }}@github.com/KYKY62/backend_stunting_lkt.git"
             echo "Running build script..."
 
             if [ ! -d "$APP_PATH/.git" ]; then
