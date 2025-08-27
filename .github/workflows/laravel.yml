@@ -18,10 +18,10 @@ jobs:
       - name: Deploy using ssh
         uses: appleboy/ssh-action@v1.1.0
         with:
-          port: ${{ secrets.SSH_PORT }}
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
             REPO="https://${{ secrets.GIT_TOKEN }}@github.com/KYKY62/backend_stunting_lkt.git"
             DIR="${{ secrets.APP_PATH }}"
