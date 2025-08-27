@@ -30,3 +30,13 @@ jobs:
           DB_CONNECTION: mysql
           DB_DATABASE: database/stunting_lkt
         run: php artisan test
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            REPO="https://${{ secrets.GIT_TOKEN }}@github.com/dirumahrafif/laravel-docker.git"
+            DIR="${{ secrets.APP_PATH }}"
+            ./build.sh
