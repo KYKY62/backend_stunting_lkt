@@ -12,21 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Show env
-        run: |
-          echo "Host: ${{ secrets.SSH_HOST }}"
-          echo "Username: ${{ secrets.SSH_USERNAME }}"
-          echo "Key set? -> ${{ secrets.SSH_KEY != '' }}"
-          echo "Port: 22"
-
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Simple SSH test
-        uses: appleboy/ssh-action@master
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: 2222
-          script: echo "Hello from server"
+          script: |
+            cd "${{ secrets.APP_PATH }}"
+            ./build.sh
