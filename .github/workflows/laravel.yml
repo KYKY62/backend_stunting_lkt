@@ -35,8 +35,9 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          # key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            cd /home/devtest/public_html/
-            ./build.sh
+          port: ${{ secrets.SSH_PORT }}
+          script_stop: true
+          debug: true
+          script: cd "${{ secrets.APP_PATH }}" && ./build.sh
