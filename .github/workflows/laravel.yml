@@ -12,6 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Show env
+        run: |
+          echo "Host: ${{ secrets.SSH_HOST }}"
+          echo "Username: ${{ secrets.SSH_USERNAME }}"
+          echo "Key set? -> ${{ secrets.SSH_KEY != '' }}"
+          echo "Port: 22"
+
       - name: Checkout Repo
         uses: actions/checkout@v4
 
