@@ -2,18 +2,20 @@
 
 echo "Running build script..."
 
-echo "[1/4] Pulling from github"
+echo "[1/6] Pulling from github"
+git config --global --add safe.directory "${pwd}"
 git pull origin 
-git config --global --add safe.directory
 
-echo "[2/4] migrate database if one isnt found"
+echo "[3/6] ubah ke devtest"
+exit
+
+echo "[3/6] installing packages use composer"
+composer install
+
+echo "[5/6] migrate database if one isnt found"
 php artisan migrate
 
-echo "[3/4] installing packages use composer"
-composer install
-php8.3 $(which composer) install 
-
-echo "[4/4] setting up npm"
+echo "[6/6] setting up npm"
 npm run install
 npm run build
 
