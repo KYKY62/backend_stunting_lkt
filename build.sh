@@ -8,6 +8,10 @@ echo "[1/4] Pulling from github"
 git reset --hard HEAD
 git pull origin main
 
+# Pastikan build.sh bisa dijalankan
+echo "ubah permission build.sh"
+chmod 755 /home/devtest/public_html/build.sh
+
 echo "[2/4] ubah ke devtest installing packages use composer"
 sudo -u devtest -H bash -lc "cd /home/devtest/public_html && composer install"
 
