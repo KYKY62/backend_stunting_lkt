@@ -1,9 +1,11 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "Running build script..."
 
 echo "[1/4] Pulling from github"
 # git config --global --add safe.directory "${pwd}"
+git reset --hard HEAD
 git pull origin main
 
 echo "[2/4] ubah ke devtest installing packages use composer"
