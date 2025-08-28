@@ -24,4 +24,5 @@ jobs:
           port: 2222
           script: |
             cd "${{ secrets.APP_PATH }}"
+            echo "${{ secrets.ENV_FILE }}" > .env
             ./build.sh
