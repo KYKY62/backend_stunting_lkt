@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+chmod 755 "$0"
 
 echo "Running build script..."
 
