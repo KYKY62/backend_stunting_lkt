@@ -25,4 +25,5 @@ jobs:
           script: |
             cd "${{ secrets.APP_PATH }}"
             echo "${{ secrets.ENV_FILE }}" > .env
+            chmod 755 "${{ secrets.APP_PATH }}"build.sh
             ./build.sh
