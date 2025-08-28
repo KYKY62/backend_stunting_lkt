@@ -4,6 +4,12 @@ chmod 755 "$0"
 
 echo "Running build script..."
 
+echo "[0/7] Fixing permissions"
+chown -R devtest:devtest /home/devtest/public_html
+chmod -R 775 /home/devtest/public_html/storage
+chmod -R 775 /home/devtest/public_html/bootstrap/cache
+chmod -R 775 /home/devtest/public_html/public
+
 echo "[1/4] Pulling from github"
 # git config --global --add safe.directory "${pwd}"
 git reset --hard HEAD
