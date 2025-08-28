@@ -12,8 +12,8 @@ chmod -R 775 /home/devtest/public_html/public
 
 echo "[1/4] Pulling from github"
 # git config --global --add safe.directory "${pwd}"
-git reset --hard HEAD
-git pull origin main
+sudo -u devtest -H bash -lc "cd /home/devtest/public_html && git fetch origin main && git reset --hard origin/main"
+
 
 echo "[2/4] ubah ke devtest installing packages use composer"
 sudo -u devtest -H bash -lc "cd /home/devtest/public_html && composer install"
